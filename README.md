@@ -104,3 +104,21 @@ npm run build
 | `GET` | `/api/categories` | List categories with period spending & utilization |
 | `POST` | `/api/categories` | Create custom category |
 | `PATCH` | `/api/categories/{id}/budget` | Update monthly budget cap |
+
+---
+
+## Deploying Live (Render + Vercel)
+
+### 1. Deploy the Backend (`/backend`) on Render
+This repository includes [`render.yaml`](render.yaml) and [`backend/Dockerfile`](backend/Dockerfile):
+1. Sign in to [Render](https://render.com) and click **New → Blueprint** (or **New → Web Service**).
+2. Connect `ananyatabassum/FinTrack`. Render detects `render.yaml` automatically and deploys the Dockerized Spring Boot API with `/api/health` checks.
+3. Copy your deployed backend URL (e.g. `https://fintrack-api.onrender.com`).
+
+### 2. Deploy the Frontend (`/frontend`) on Vercel
+This repository includes [`frontend/vercel.json`](frontend/vercel.json) for SPA routing:
+1. Import `ananyatabassum/FinTrack` on [Vercel](https://vercel.com) and set **Root Directory** to `frontend`.
+2. Add Environment Variable:
+   - `VITE_API_BASE_URL` = `https://fintrack-api.onrender.com/api` (replace with your Render backend URL)
+3. Deploy and copy your live Vercel URL (e.g. `https://fintrack-demo.vercel.app`).
+4. Paste that live URL into **About → Website** on your GitHub repository page so visitors can open the live app directly from GitHub.
