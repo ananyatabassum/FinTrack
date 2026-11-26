@@ -1,5 +1,7 @@
 # FinTrack — Personal & Shared Expense Tracker
 
+> **Live App:** https://fintrack-expense-tracker-three.vercel.app (Full-stack React + Spring Boot deployed via Vercel Services — use **One-Click Demo Login** to preview immediately!)
+
 A production-grade, full-stack **Personal & Shared Expense Tracker** web application built with **Java 21 / Spring Boot 3.4** and **React 18 / TypeScript / Tailwind CSS**. Designed with a crisp fintech UI inspired by Stripe, Linear, and Wise.
 
 ---
