@@ -253,12 +253,12 @@ export function TransactionsPage({
               <table className="w-full border-collapse text-left text-sm">
                 <thead>
                   <tr className="border-b border-slate-200 bg-slate-50/70 text-[11px] font-semibold uppercase tracking-wider text-slate-500 dark:border-slate-800 dark:bg-slate-900/50 dark:text-slate-400">
-                    <th className="px-5 py-3.5">Transaction</th>
-                    <th className="px-4 py-3.5">Category</th>
-                    <th className="px-4 py-3.5">Method</th>
-                    <th className="px-4 py-3.5">Date</th>
-                    <th className="px-4 py-3.5 text-right">Amount</th>
-                    <th className="px-5 py-3.5 text-right">Actions</th>
+                    <th className="px-4 py-3">Transaction</th>
+                    <th className="px-3 py-3">Category</th>
+                    <th className="px-3 py-3">Method</th>
+                    <th className="px-3 py-3">Date</th>
+                    <th className="px-3 py-3 text-right">Amount</th>
+                    <th className="px-4 py-3 text-right">Actions</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100 dark:divide-slate-800/80">
@@ -267,7 +267,7 @@ export function TransactionsPage({
                       key={tx.id}
                       className="transition-colors hover:bg-slate-50/75 dark:hover:bg-slate-800/40"
                     >
-                      <td className="px-5 py-3.5">
+                      <td className="px-4 py-3">
                         <div className="flex items-center gap-3">
                           <div
                             className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl text-white"
@@ -283,7 +283,7 @@ export function TransactionsPage({
                               {tx.isRecurring && (
                                 <span
                                   title="Recurring monthly"
-                                  className="inline-flex items-center gap-0.5 rounded-md bg-indigo-50 px-1.5 py-0.5 text-[10px] font-semibold text-[#6366F1] dark:bg-indigo-500/15 dark:text-indigo-300"
+                                  className="inline-flex shrink-0 items-center gap-0.5 rounded-md bg-indigo-50 px-1.5 py-0.5 text-[10px] font-semibold text-[#6366F1] dark:bg-indigo-500/15 dark:text-indigo-300"
                                 >
                                   <Repeat className="h-2.5 w-2.5" />
                                   Recurring
@@ -291,7 +291,7 @@ export function TransactionsPage({
                               )}
                             </div>
                             <div className="mt-0.5 flex flex-wrap items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
-                              {tx.notes && <span className="truncate max-w-xs">{tx.notes}</span>}
+                              {tx.notes && <span className="truncate max-w-[200px]">{tx.notes}</span>}
                               {tx.splitWith && (
                                 <span className="inline-flex items-center gap-1 rounded-md bg-slate-100 px-1.5 py-0.5 text-[10px] font-medium text-slate-600 dark:bg-slate-800 dark:text-slate-300">
                                   <Users className="h-2.5 w-2.5" />
@@ -302,7 +302,7 @@ export function TransactionsPage({
                           </div>
                         </div>
                       </td>
-                      <td className="px-4 py-3.5">
+                      <td className="whitespace-nowrap px-3 py-3">
                         <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 px-2.5 py-0.5 text-xs font-medium text-slate-700 dark:border-slate-700 dark:text-slate-300">
                           <span
                             className="h-2 w-2 rounded-full"
@@ -311,15 +311,15 @@ export function TransactionsPage({
                           {tx.categoryName}
                         </span>
                       </td>
-                      <td className="px-4 py-3.5">
+                      <td className="whitespace-nowrap px-3 py-3">
                         <span className="rounded-lg bg-slate-100 px-2 py-1 text-xs font-semibold text-slate-600 dark:bg-slate-800 dark:text-slate-300">
                           {paymentMethodLabel(tx.paymentMethod)}
                         </span>
                       </td>
-                      <td className="px-4 py-3.5 text-xs text-slate-500 dark:text-slate-400">
+                      <td className="whitespace-nowrap px-3 py-3 text-xs text-slate-500 dark:text-slate-400">
                         {formatShortDate(tx.date)}
                       </td>
-                      <td className="tabular-nums px-4 py-3.5 text-right font-bold">
+                      <td className="tabular-nums whitespace-nowrap px-3 py-3 text-right font-bold">
                         <span
                           className={
                             tx.type === 'INCOME'
@@ -331,7 +331,7 @@ export function TransactionsPage({
                           {formatMoney(tx.amount)}
                         </span>
                       </td>
-                      <td className="px-5 py-3.5 text-right">
+                      <td className="whitespace-nowrap px-4 py-3 text-right">
                         <div className="inline-flex items-center gap-1">
                           <button
                             type="button"

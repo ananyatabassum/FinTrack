@@ -29,6 +29,7 @@ public class AuthService {
     private final AuthenticationManager authenticationManager;
     private final JwtService jwtService;
     private final CategoryService categoryService;
+    private final DemoDataService demoDataService;
 
     @Transactional
     public AuthResponse register(RegisterRequest request) {
@@ -63,8 +64,7 @@ public class AuthService {
     }
 
     public AuthResponse demoLogin() {
-        User demoUser = userRepository.findByEmailIgnoreCase(DEMO_EMAIL)
-                .orElseThrow(() -> new ResourceNotFoundException("Demo account is not initialized"));
+        User demoUser = demoDataService.ensureDemoUserSeeded();
         UserPrincipal principal = new UserPrincipal(demoUser);
         String token = jwtService.generateToken(principal);
         return buildAuthResponse(demoUser, token);
